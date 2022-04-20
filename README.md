@@ -1,4 +1,4 @@
-# Reaction :space_invader:
+# Reaction :trophy:
 Simple and easy-to-use interactivity framework for Avalonia
 
 ## Quick start :horse_racing:
@@ -11,7 +11,7 @@ Add `xmlns:act="clr-namespace:Reaction;assembly=Reaction"` to your view and use 
 | React.CommandParameter | object? | (optional) Parameter passed to `React.Command` upon its execution |
 | React.CommandParameterProvider | IReactParameterProvider? | (optional) Provider that converts specific `EventArgs` to user defined types. It is used to retrieve the command parameter only when `React.CommandParameter` is null |
 
-## Example
+## Example :mountain_bicyclist:
 Call `MyFunction` with specific argument when `PointerWheelChanged` or `KeyDown` event is raised. `MyReactionParameterProvider` converts the `EventArgs` to `double`, so the function will always receive valid parameter type.
 
 MainWindow.xaml
@@ -48,5 +48,5 @@ public class MyReactionParameterProvider : IReactParameterProvider
 }
 ```
 
-## That's it!
+## That's it! :bicyclist:
 Feel free to check how it looks in action by running the `Sample` project!
