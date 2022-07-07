@@ -1,8 +1,10 @@
+using Reaction.Models;
 using Reaction.Providers;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Sample.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace Sample.ViewModels
@@ -17,7 +19,15 @@ namespace Sample.ViewModels
         public static string Greeting => $"{AvaloniaGreeting} Welcome to Reaction world!";
         public string ReactiveGreeting => Greeting[..CurrentLength];
         public static string HelpMessage => "Try scrolling or pressing arrows";
+        [Reactive]
+        public bool IsHelpVisible { get; set; } = true;
+        #region Single reaction
         public ICommand UpdateGreetingCommand => ReactiveCommand.Create<double>(UpdateGreeting);
-        public static IReactParameterProvider ParameterProvider => new MyReactionParameterProvider();
+        public static IReactParameterProvider PositionParameterProvider => new PositionParameterProvider();
+        public static string GreetingTriggers => "PointerWheelChanged|KeyDown";
+        #endregion
+        #region Multiple reactions
+        public IReadOnlyCollection<Observation> Observations => new[] { new Observation(ReactiveCommand.Create<bool>(vis => IsHelpVisible = vis), "IsPointerOver", new VisibilityParameterProvider()) };
+        #endregion
     }
 }

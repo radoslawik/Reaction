@@ -1,10 +1,11 @@
-﻿using Avalonia.Input;
+﻿using Avalonia;
+using Avalonia.Input;
 using Reaction.Providers;
 using System;
 
 namespace Sample.Helpers
 {
-    public class MyReactionParameterProvider : IReactParameterProvider
+    internal class PositionParameterProvider : IReactParameterProvider
     {
         public object? GetDefaultCommandParameter(object sender, EventArgs e)
         {

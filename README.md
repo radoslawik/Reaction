@@ -10,6 +10,7 @@ Add `xmlns:act="clr-namespace:Reaction;assembly=Reaction"` to your view and use 
 | React.Command | ICommand | Command to execute when one of the events specified in `React.ObserveOn` is raised |
 | React.CommandParameter | object? | (optional) Parameter passed to `React.Command` upon its execution |
 | React.CommandParameterProvider | IReactParameterProvider? | (optional) Provider that converts specific `EventArgs` to user defined types. It is used to retrieve the command parameter only when `React.CommandParameter` is null |
+| React.Observations | IEnumerable<Observation> | Collection of Observation that allows to set multiple reactions. It is allowed to use both, ObserveOn + Command and Observations attached properties |
 
 ## Example :mountain_bicyclist:
 Call `MyFunction` with specific argument when `PointerWheelChanged` or `KeyDown` event is raised. `MyReactionParameterProvider` converts the `EventArgs` to `double`, so the function will always receive valid parameter type.
